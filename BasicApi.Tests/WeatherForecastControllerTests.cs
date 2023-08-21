@@ -7,7 +7,7 @@ namespace BasicApi.Tests;
 public class WeatherForecastControllerTests
 {
     [Test]
-    public void get_forecast()
+    public void get_forecast_for_5_days()
     {
         var controller = new WeatherForecastController(A.Fake<ILogger<WeatherForecastController>>());
 
@@ -15,5 +15,6 @@ public class WeatherForecastControllerTests
 
         Assert.That(result, Is.Not.Null);
         Assert.That(result, Is.Not.Empty);
+        Assert.That(result.Count(), Is.EqualTo(5));
     }
 }
